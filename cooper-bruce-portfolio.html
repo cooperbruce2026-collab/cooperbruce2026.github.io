@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooper Bruce - Business Analytics & Digital Strategy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f7f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        header .tagline {
+            font-size: 1.1em;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+        
+        nav {
+            background: #fff;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #8B4513;
+        }
+        
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        section h2 {
+            font-size: 2.5em;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #8B4513;
+            padding-bottom: 15px;
+        }
+        
+        .intro {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .intro h3 {
+            color: #1a1a1a;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        .intro p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            background: #FFF8F5;
+            padding: 25px;
+            border-left: 4px solid #8B4513;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid #8B4513;
+        }
+        
+        .stat-number {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #8B4513;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 0.95em;
+            color: #666;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        
+        .role-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #8B4513;
+        }
+        
+        .role-box h4 {
+            color: #8B4513;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .role-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .role-box li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .role-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        .impact-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .impact-section h3 {
+            color: #8B4513;
+            font-size: 1.5em;
+            margin-bottom: 25px;
+        }
+        
+        .key-achievement {
+            background: #FFF8F5;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #8B4513;
+        }
+        
+        .key-achievement h4 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .key-achievement p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        
+        .metric-highlight {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .metric-item {
+            background: #f9f7f5;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #8B4513;
+            margin-bottom: 8px;
+        }
+        
+        .metric-text {
+            font-size: 0.9em;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .skill-card h4 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .skill-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .roi-showcase {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .roi-showcase h3 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #D4A574;
+        }
+        
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .roi-item h4 {
+            font-size: 0.95em;
+            opacity: 0.85;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .roi-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #D4A574;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .project-header {
+            background: #8B4513;
+            color: white;
+            padding: 25px;
+        }
+        
+        .project-header h4 {
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        
+        .project-header p {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        .project-body {
+            padding: 25px;
+        }
+        
+        .project-body p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #8B4513;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            background: #A0522D;
+        }
+        
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #D4A574;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            nav a {
+                font-size: 0.9em;
+            }
+            
+            .roi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .metric-highlight {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cooper Bruce</h1>
+        <div class="subtitle">Business Analytics & Digital Strategy</div>
+        <div class="tagline">DePauw University Senior | Turning data into decisions that drive real business impact</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#cake-cups">Cake Cups Case Study</a></li>
+            <li><a href="#role">My Role</a></li>
+            <li><a href="#impact">Impact & Results</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="intro">
+            <p>I'm a senior at DePauw University majoring in Business Analytics with a track record of translating complex data into actionable business insights. This semester, I led a team of four through a complete digital transformation project for Cake Cups by BreadWorks—a real client with real stakes.</p>
+            
+            <p>What I've learned: <strong>data without identity is just numbers, and identity without data is just guessing.</strong> I combine rigorous analytics with strategic thinking to solve actual business problems. I'm comfortable managing teams, working directly with clients, analyzing data at scale, and communicating findings to non-technical decision-makers.</p>
+            
+            <p>My background spans econometrics research (BUS 305), rhetorical analysis and persuasion (COMM 322A), international development (Kenya study abroad), and hands-on consulting work. I think across disciplines.</p>
+        </div>
+        
+        <div class="highlight">
+            <strong>Key strengths:</strong> Team leadership, data analysis & visualization (Tableau, Python), marketing strategy, Meta Ads management, stakeholder communication, project accountability
+        </div>
+    </section>
+    
+    <section id="cake-cups">
+        <h2>Cake Cups by BreadWorks: A Complete Case Study</h2>
+        
+        <div class="intro">
+            <h3>The Challenge</h3>
+            <p>Cake Cups—handcrafted desserts made daily in Greencastle, Indiana—had strong in-store sales ($182K/year) but virtually zero online presence ($2,845 in revenue over two years). My team was tasked with increasing online sales. What began as a website redesign became a complete rebranding campaign.</p>
+        </div>
+        
+        <div class="intro">
+            <h3>What We Discovered</h3>
+            <p>After analyzing the data, we realized the problem wasn't the product (70% repeat customer rate) or the website mechanics. <strong>The problem was visibility and identity.</strong> Cake Cups had no consistent brand presence, no professional marketing assets, and no way for new customers to even find the product online.</p>
+            
+            <p>Instead of optimizing the wrong things, we proposed a complete rebranding campaign: professional photoshoots, website redesign, social media strategy, and paid advertising.</p>
+        </div>
+    </section>
+    
+    <section id="role">
+        <h2>My Role: Team Lead</h2>
+        
+        <div class="role-box">
+            <h4>Leadership & Coordination</h4>
+            <ul>
+                <li>Led a team of four through a semester-long consulting project with real client deadlines</li>
+                <li>Managed team dynamics, delegated responsibilities, and kept everyone aligned on goals</li>
+                <li>Conducted weekly check-ins with the general manager at BreadWorks to coordinate social media posting</li>
+                <li>Made final calls when time was short and trade-offs had to be made</li>
+            </ul>
+        </div>
+        
+        <div class="role-box">
+            <h4>Data Analysis & Insights</h4>
+            <ul>
+                <li>Analyzed two years of Squarespace transaction data (103 orders, 48 fields) to identify revenue barriers</li>
+                <li>Created Tableau visualizations showing retail vs. online performance gap and geographic distribution</li>
+                <li>Discovered key insight: 70% repeat customer rate meant the product was excellent—the barrier was awareness</li>
+                <li>Used data to justify strategic pivot from website optimization to brand-first strategy</li>
+            </ul>
+        </div>
+        
+        <div class="role-box">
+            <h4>Meta Ads Strategy & Implementation</h4>
+            <ul>
+                <li>Designed and implemented three Meta Ads campaigns on a $315 budget</li>
+                <li>Researched campaign objectives (traffic vs. conversions) and audience targeting best practices</li>
+                <li>Set up Meta Business Suite account and tied it to Squarespace for real-time tracking</li>
+                <li>Monitored daily analytics (impressions, link clicks, cost per click) and optimized timing/budget</li>
+                <li>Demonstrated 90% ROI: $315 spent → $597 in revenue → $282 in profit</li>
+            </ul>
+        </div>
+        
+        <div class="role-box">
+            <h4>Client Communication & Presentation</h4>
+            <ul>
+                <li>Presented findings and strategy recommendations to the client, professors, and peers</li>
+                <li>Explained complex data insights in simple, actionable terms (not just numbers)</li>
+                <li>Delivered final presentation to Joyce Green, Gregory Berke, and faculty advisors</li>
+                <li>Translated KPI metrics into narrative about what the numbers actually meant for the business</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="impact">
+        <h2>Impact & Results</h2>
+        
+        <div class="impact-section">
+            <h3>The Numbers</h3>
+            <p style="font-size: 1.1em; margin-bottom: 30px;">In just three weeks of campaign launch (April 2026), we delivered measurable results across every metric we tracked:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">1,148%</div>
+                    <div class="stat-label">Website Traffic Increase</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">50,610</div>
+                    <div class="stat-label">Total Social Media Views</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1,107</div>
+                    <div class="stat-label">Link Clicks to Website (110x increase)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">168%</div>
+                    <div class="stat-label">Monthly Sales Increase</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="impact-section">
+            <h3>Campaign Performance</h3>
+            
+            <div class="key-achievement">
+                <h4>Ads ROI: 90%</h4>
+                <p><strong>$315 ad spend → $597 total revenue → $282 profit</strong></p>
+                <p>Cost per click: $0.28 | Cost per order: $21.01</p>
+            </div>
+            
+            <div class="key-achievement">
+                <h4>Social Media Engagement</h4>
+                <p><strong>816% increase</strong> in total engagement across Facebook and Instagram</p>
+                <p>25,258 unique Instagram accounts reached | 1,445 profile visits</p>
+            </div>
+            
+            <div class="key-achievement">
+                <h4>Online Sales</h4>
+                <p><strong>16 orders in April 2026</strong> (our best month on record)</p>
+                <p>Orders reached 9 different states (expanding beyond Indiana for the first time)</p>
+            </div>
+            
+            <div class="key-achievement">
+                <h4>Key Demographic Insight</h4>
+                <p><strong>Women 65+ accounted for 18.6% of total engagement</strong> (highest performing demographic)</p>
+                <p>Finding: This demographic responded to messaging about gifting and quality, opening doors for future targeting</p>
+            </div>
+        </div>
+        
+        <div class="impact-section">
+            <h3>KPI Goal Achievement</h3>
+            <p style="font-size: 1.05em; margin-bottom: 25px;">We set targets during midterm. Here's how we performed:</p>
+            
+            <div class="metric-highlight">
+                <div class="metric-item">
+                    <div style="font-size: 0.9em; color: #999; margin-bottom: 8px;">Website Traffic Goal</div>
+                    <div class="metric-number">15%</div>
+                    <div style="font-size: 1.2em; font-weight: 700; color: #5CB85C;">Achieved: 1,148%</div>
+                </div>
+                <div class="metric-item">
+                    <div style="font-size: 0.9em; color: #999; margin-bottom: 8px;">Engagement Goal</div>
+                    <div class="metric-number">5%</div>
+                    <div style="font-size: 1.2em; font-weight: 700; color: #5CB85C;">Achieved: 816%</div>
+                </div>
+                <div class="metric-item">
+                    <div style="font-size: 0.9em; color: #999; margin-bottom: 8px;">Sales Goal</div>
+                    <div class="metric-number">5%</div>
+                    <div style="font-size: 1.2em; font-weight: 700; color: #5CB85C;">Achieved: 168%</div>
+                </div>
+                <div class="metric-item">
+                    <div style="font-size: 0.9em; color: #999; margin-bottom: 8px;">Orders Goal</div>
+                    <div class="metric-number">10</div>
+                    <div style="font-size: 1.2em; font-weight: 700; color: #5CB85C;">Achieved: 16</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="roi-showcase">
+            <h3>The ROI Story</h3>
+            <div class="roi-grid">
+                <div>
+                    <h4>Ad Budget</h4>
+                    <div class="roi-number">$315</div>
+                </div>
+                <div>
+                    <h4>Revenue Generated</h4>
+                    <div class="roi-number">$597</div>
+                </div>
+                <div>
+                    <h4>Net Profit</h4>
+                    <div class="roi-number">$282</div>
+                </div>
+                <div>
+                    <h4>Return</h4>
+                    <div class="roi-number">90%</div>
+                </div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.1em;">Three weeks. Seven social posts. Three ads. April 2026 became Cake Cups' best revenue month in company history.</p>
+        </div>
+        
+        <div class="impact-section">
+            <h3>What This Proves</h3>
+            <ul style="font-size: 1.05em; line-height: 2; padding-left: 20px;">
+                <li><strong>I can identify the real problem.</strong> Many would have optimized conversion rates. We diagnosed visibility as the barrier.</li>
+                <li><strong>I can lead teams.</strong> Coordinated four people, managed real client relationships, made decisions under pressure.</li>
+                <li><strong>I can manage budgets and measure impact.</strong> $315 investment was tracked to the penny and delivered clear ROI.</li>
+                <li><strong>I understand the intersection of data and strategy.</strong> Numbers without context are meaningless. I translate analytics into business decisions.</li>
+                <li><strong>I can communicate with non-technical audiences.</strong> Client presentations focused on what matters (revenue up 168%), not just metrics.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <h2>Skills & Tools</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4>Data Analysis</h4>
+                <p>Tableau • Python • Squarespace Analytics • Exploratory Data Analysis • Data Cleaning</p>
+            </div>
+            <div class="skill-card">
+                <h4>Digital Marketing</h4>
+                <p>Meta Ads Manager • Social Media Strategy • Campaign Optimization • KPI Tracking • A/B Testing</p>
+            </div>
+            <div class="skill-card">
+                <h4>Business Analytics</h4>
+                <p>Econometrics • Logistic Regression • Customer Segmentation • ROI Analysis • Conversion Funnel</p>
+            </div>
+            <div class="skill-card">
+                <h4>Leadership</h4>
+                <p>Team Coordination • Project Management • Client Communication • Stakeholder Management • Decision-Making</p>
+            </div>
+            <div class="skill-card">
+                <h4>Strategic Thinking</h4>
+                <p>SWOT Analysis • Market Analysis • Brand Strategy • Problem-Solving • Product Strategy</p>
+            </div>
+            <div class="skill-card">
+                <h4>Communication</h4>
+                <p>Presentations • Data Visualization • Written Reports • Non-Technical Explanation • Public Speaking</p>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <h2>Certifications</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4>Introduction to AI</h4>
+                <p>Google Coursera Certificate | May 2026</p>
+                <p style="font-size: 0.9em; color: #999; margin-top: 10px;">Foundations in artificial intelligence and machine learning concepts</p>
+            </div>
+            <div class="skill-card">
+                <h4>Google Analytics Certification</h4>
+                <p>Google Credential | April 2027</p>
+                <p style="font-size: 0.9em; color: #999; margin-top: 10px;">Expert-level analytics, measurement, and data-driven decision making</p>
+            </div>
+            <div class="skill-card">
+                <h4>Data, Data, Everywhere</h4>
+                <p>Google Coursera Certificate | May 2026</p>
+                <p style="font-size: 0.9em; color: #999; margin-top: 10px;">Data analysis fundamentals and exploratory data techniques</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Let's Connect</h2>
+        
+        <div class="intro">
+            <h3>What I'm Looking For</h3>
+            <p>I'm graduating from DePauw University with a degree in Business Analytics. I'm seeking opportunities where I can:</p>
+            <ul style="font-size: 1.05em; line-height: 2; padding-left: 20px; margin-top: 20px;">
+                <li>Apply analytics to drive real business outcomes</li>
+                <li>Work directly with stakeholders to translate data into decisions</li>
+                <li>Lead projects and grow teams</li>
+                <li>Think strategically about problems before jumping to solutions</li>
+            </ul>
+            
+            <p style="margin-top: 30px;">The Cake Cups project showed me that I thrive when the stakes are real, when I'm accountable to actual clients, and when I can see my work create measurable impact. That's the kind of work I want to do next.</p>
+            
+            <div style="margin-top: 40px; padding: 30px; background: #f0f0f0; border-radius: 8px;">
+                <p><strong>Email:</strong> <a href="mailto:cooperbruce_2026@depauw.edu" style="color: #8B4513; text-decoration: none;">cooperbruce_2026@depauw.edu</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/cooper-bruce-6a2181273" style="color: #8B4513; text-decoration: none;">www.linkedin.com/in/cooper-bruce-6a2181273</a></p>
+                <p><strong>Project Case Study:</strong> <a href="cake-cups-portfolio.html" style="color: #8B4513; text-decoration: none;">Full Cake Cups Analysis</a></p>
+                <p><strong>Live Project:</strong> <a href="https://www.cakecupsbybreadworks.com" style="color: #8B4513; text-decoration: none;">www.cakecupsbybreadworks.com</a></p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p><strong>Cooper Bruce</strong> — Business Analytics & Digital Strategy</p>
+        <p>DePauw University | Senior | Class of 2026</p>
+        <p style="margin-top: 20px; opacity: 0.8; font-size: 0.95em;">Portfolio site showcasing real consulting work and measurable impact</p>
+    </footer>
+</body>
+</html>
